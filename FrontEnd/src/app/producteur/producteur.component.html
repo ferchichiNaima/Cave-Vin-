@@ -1,0 +1,59 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Ajouter Producteur  </h3>
+    <form (ngSubmit) = "onSubmit()">
+        <small class="text-danger">{{msg}}</small>
+      
+        <th>     
+            
+        <div class="input text required">
+            <label> Nom:</label>
+            <input required type="text" class ="form-control" id = "nom"
+                [(ngModel)] = "producteur.nom" name = "producteur" required="required" >
+        </div>
+        
+        
+        <div class="form-group">
+            <label> Numéro Fiscal:</label>
+            <input type="number " class ="form-control" id = "numero_fiscal"
+                [(ngModel)] = "producteur.numero_fiscal" name = "numero_fiscal" required>
+        </div>
+    
+    
+        <div class="form-group">
+            <label  >Region Viticole</label>
+            <select [(ngModel)]="producteur.regionviticole" name="region_viticole">
+              <option value="Région Alsace"> Région Alsace</option>
+              <option value="Région Bordeaux"> Région Bordeaux</option>
+              <option value="Région Beaujolais"> Région Beaujolais</option>
+              <option value=" Région Bourgogne">  Région Bourgogne</option>
+              <option value="Région Champagne"> Région Champagne </option>
+              <option value="Région Provence-Corse">Région Provence-Corse</option>
+              <option value="Région Jura"> Région Jura</option>
+              <option value="Région Languedoc-Roussillon"> Région Languedoc-Roussillon</option>
+              <option value="Région Lorraine">Région Lorraine</option>
+              <option value="Région Loire"> Région Loire</option>
+              <option value="Région Rhône"> Région Rhône</option>
+              <option value="Région Savoie-Bugey">Région Savoie-Bugey</option>
+              <option value="Région Sud-Ouest">Région Sud-Ouest</option>
+             
+            </select>
+            
+        </div>
+        <div class="form-group">
+            <label>Ville</label>
+            <input type="text" class ="form-control" id = "ville"
+                [(ngModel)] = "producteur.ville" name = "ville">
+        </div> 
+        <div class="form-group">
+            <label>Telephone</label>
+            <input type="number" class ="form-control" id = "telephone"
+                [(ngModel)] = "producteur.telephone" name = "telephone">
+        </div> 
+    </th> 
+    <div>
+        <button class = "btn btn-success"  type ="submit">Submit</button>
+    </div> 
+    </form>
+    </div> 
+    <button (click) = "retour()" class = "btn btn-info vertical-center1" style="margin-left: 10px"> retour</button>
+

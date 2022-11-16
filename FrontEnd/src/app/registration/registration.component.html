@@ -1,0 +1,38 @@
+
+<div class="col-md-6 offset-md-2">
+    <h2>Page d'enregistrement</h2>
+    <form #RegisterForm="ngForm" (ngSubmit)="RegisterUser()">
+        <small class="text-danger">{{msg}}</small>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="emailId" placeholder="Entrez un email" name="emailId" [(ngModel)]="user.emailId" required #emailId="ngModel"
+        [class.is-invalid]="emailId.invalid && emailId.touched"
+        >
+        <small class="text-danger" [class.d-none]="emailId.valid || emailId.untouched">Email est un champ obligatoire </small>
+      </div>
+      <div class="form-group">
+        <label for="userName"> Nom d'utilisateur:</label>
+        <input type="text" class="form-control" id="userName" placeholder="Entrez un nom d'utilisateur" name="userName" [(ngModel)]="user.userName" required #userName="ngModel"
+        [class.is-invalid]="userName.invalid && userName.touched"
+        >
+        <small class="text-danger" [class.d-none]="userName.valid || userName.untouched">Nom d'utilisateur est un champ obligatoire </small>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Mot de passe:</label>
+        <input type="password" class="form-control" id="password" placeholder="Entrez mot de passe " name="password" [(ngModel)]="user.password" required #password="ngModel"
+        [class.is-invalid]="password.invalid && password.touched"
+        >
+        <small class="text-danger" [class.d-none]="password.valid || password.untouched">Mot de passe est un champ obligatoire </small>
+      </div>
+      <div class="form-group">
+        <label for="password">Confirmer Mot de passe :</label>
+        <input type="password" class="form-control" placeholder="Entrez votre mot de passe de confirmation" name="cpassword" [(ngModel)]="pass" required #cpassword="ngModel"
+        [class.is-invalid]="cpassword.invalid && cpassword.touched"
+        >
+        <small class="text-danger" [class.d-none]="(pass==password.value) || cpassword.untouched">Le mot de passe et la confirmation de mot de passe doivent etre les memes  </small>
+      </div>
+      <button [disabled]= "RegisterForm.form.invalid" type="submit" class="btn btn-info">Enregistrer</button>
+    </form>
+    <small class="float-right" [routerLink]="['/login']">Vous avez un compte ? Connectez-vous ici</small>
+  </div>

@@ -1,0 +1,98 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class = "navbar-nav">
+      <!-- <li class = "nav-item">
+            <a routerLink="wines" routerLinkActive="active" class="nav-link" >Vin List</a>
+        </li>
+        <li class = "nav-item">
+            <a routerLink="create-wine" routerLinkActive="active" class="nav-link" >Add Vin</a>
+        </li>-->
+        <li class = "nav-item">
+          <a href="login" routerLinkActive="active" class="nav-link w3-right vertical-center3" >Se Connecter</a>
+      </li>
+      <li class = "nav-item">
+        <a href="acceuil" routerLinkActive="active" class="nav-link" >Acceuil</a>
+    </li>
+      <li class = "nav-item">
+        <a href="publicList" routerLinkActive="active" class="nav-link" >Nos Vins</a>
+    </li>
+    <li class = "nav-item">
+      <a href="nosproducteurs" routerLinkActive="active" class="nav-link" >Nos Producteurs</a>
+  </li>
+  
+    </ul>
+  </nav>
+
+<th>
+  <div class="form-group">
+    <label  >Couleur</label>
+    <select [(ngModel)]="couleur" name="couleur">
+      <option value="">toutes les couleurs</option> 
+      <option value="Blanc">Blanc</option>
+      <option value="Rouge">Rouge</option>
+      <option value="Rosé">Rosé</option>
+     
+    </select>
+ 
+      <label  >Region</label>
+      <select [(ngModel)]="region" name="region">
+        <option value="">toutes les région</option>
+        <option value="Région Alsace"> Région Alsace</option>
+        <option value="Région Bordeaux"> Région Bordeaux</option>
+        <option value="Région Beaujolais"> Région Beaujolais</option>
+        <option value=" Région Bourgogne">  Région Bourgogne</option>
+        <option value="Région Champagne"> Région Champagne </option>
+        <option value="Région Provence-Corse">Région Provence-Corse</option>
+        <option value="Région Jura"> Région Jura</option>
+        <option value="Région Languedoc-Roussillon"> Région Languedoc-Roussillon</option>
+        <option value="Région Lorraine">Région Lorraine</option>
+        <option value="Région Loire"> Région Loire</option>
+        <option value="Région Rhône"> Région Rhône</option>
+        <option value="Région Savoie-Bugey">Région Savoie-Bugey</option>
+        <option value="Région Sud-Ouest">Région Sud-Ouest</option>
+       
+      </select>
+<label  >Prix</label>
+<select [(ngModel)]="prix" name="prix">
+  <option value="">tous les prix</option>
+  <option value="inférieur à 10">inférieur à 10</option>
+  <option value="entre 10 et 20">entre 10 et 20</option>
+  <option value="supérieur à 20">supérieur à 20 </option>
+</select>
+<button  (click)="onSubmit()" class="w3-bar-item w3-button w3-green w3-mobile">Recherche</button>
+<button (click) = "voirTout()" class = "btn btn-info " style="margin-left: 10px"> Voir Tout</button>
+</div>
+</th>
+
+<h2> Liste Des Vins</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+           
+            <th> Appellation </th>
+            <th> Couleur</th>
+            <th> Région Viticole</th>
+            <th> Prix</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let vin of vins |paginate: { itemsPerPage: 5, currentPage: p }" >
+            
+            <td> {{ vin.appelation }} </td>
+            <td> {{ vin.couleur }} </td>
+            <td> {{ vin.region }} </td>
+            <td> {{ vin.prix}} </td>
+            <td>
+                
+                <button (click) = "vinDetails(vin.id)" class = "btn btn-info" style="margin-left: 10px"> Détails</button>
+            </td>
+        </tr>
+    </tbody>
+    <pagination-controls 
+
+      (pageChange)="p = $event">
+    </pagination-controls>
+</table>
+
+
+

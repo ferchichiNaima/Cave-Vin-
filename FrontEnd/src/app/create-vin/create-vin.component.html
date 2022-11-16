@@ -1,0 +1,113 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class = "navbar-nav">
+      <!-- <li class = "nav-item">
+            <a routerLink="wines" routerLinkActive="active" class="nav-link" >Vin List</a>
+        </li>
+        <li class = "nav-item">
+            <a routerLink="create-wine" routerLinkActive="active" class="nav-link" >Add Vin</a>
+        </li>-->
+        
+      <li class = "nav-item">
+        <a href="create-wine" routerLinkActive="active" class="nav-link" >Ajouter Vin</a>
+    </li>
+    <li class = "nav-item">
+        <a href="comptenosvin" routerLinkActive="active" class="nav-link" >Nos Vins</a>
+    </li>
+    <li class = "nav-item">
+        <a href="wines" routerLinkActive="active" class="nav-link" >Mes Vins</a>
+    </li>
+    <li class = "nav-item">
+      <a href="contact" routerLinkActive="active" class="nav-link vertical-center4" >Mon Compte</a>
+  </li>
+  
+  <li class = "nav-item navbar-right">
+   <a href="#" routerLinkActive="active" class="nav-link w3-right vertical-center3" >Se déconnecter</a>
+</li>
+    </ul>
+  </nav>
+
+
+<div class="col-md-6 offset-md-3">
+    <h3> Ajouter Vin  </h3>
+    <form (ngSubmit) = "onSubmit()">
+        <small class="text-danger">{{message}}</small>
+        <th>     
+            
+        
+        
+        <div class="form-group">
+            <label> Appelation</label>
+            <input type="text " class ="form-control" id = "appelation" required #appelation="ngModel"
+                [(ngModel)] = "vin.appelation" name = "appelation" >
+        </div>
+    
+    
+        <div class="form-group">
+            <label>Cepage</label>
+            <input type="text" class ="form-control" id = "cepage"
+                [(ngModel)] = "vin.cepage" name = "cepage" required> 
+        </div>
+   
+        <div class="form-group">
+            <label>Contenance</label>
+            <input type="number" class ="form-control" id = "contenance"
+                [(ngModel)] = "vin.contenance" name = "contenance">
+        </div> 
+    </th> 
+    <th>
+        <div class="form-group">
+            <label>Degré d'alcool</label>
+            <input type="number" class ="form-control" id = "degre_alcool"
+                [(ngModel)] = "vin.degre_alcool" name = "degre_alcool" required required>
+        </div>
+   
+        <div class="form-group">
+            <label>Prix</label>
+            <input type="number" class ="form-control" id = "prix"
+                [(ngModel)] = "vin.prix" name = "prix" required>
+        </div>
+    
+        <div class="form-group">
+            <label>Description</label>
+            <input type="text" class ="form-control " id = "description" 
+                [(ngModel)] = "vin.description" name = "description" >
+        </div>
+        <div class="form-group">
+            <label  >Region</label>
+            <select [(ngModel)]="vin.region" name="region">
+                <option value="Région Alsace"> Région Alsace</option>
+                <option value="Région Bordeaux"> Région Bordeaux</option>
+                <option value="Région Beaujolais"> Région Beaujolais</option>
+                <option value=" Région Bourgogne">  Région Bourgogne</option>
+                <option value="Région Champagne"> Région Champagne </option>
+                <option value="Région Provence-Corse">Région Provence-Corse</option>
+                <option value="Région Jura"> Région Jura</option>
+                <option value="Région Languedoc-Roussillon"> Région Languedoc-Roussillon</option>
+                <option value="Région Lorraine">Région Lorraine</option>
+                <option value="Région Loire"> Région Loire</option>
+                <option value="Région Rhône"> Région Rhône</option>
+                <option value="Région Savoie-Bugey">Région Savoie-Bugey</option>
+                <option value="Région Sud-Ouest">Région Sud-Ouest</option>
+             
+            </select>
+</div>
+    
+        <div class="form-group">
+                    <label  >Couleur</label>
+                    <select [(ngModel)]="vin.couleur" name="couleur">
+                      <option value="Blanc">Blanc</option>
+                      <option value="Rouge">Rouge</option>
+                      <option value="Rosé">Rosé</option>
+                     
+                    </select>
+        </div>
+        
+    <div>
+        <button class = "btn btn-success"  type ="submit">Submit</button>
+    </div>
+    </th>
+        
+    </form>
+    <small class="float-right" [routerLink]="['/producteur']">Nouveau producteur ? Creez votre profil</small>
+    </div> 
+    <button (click) = "retour()" class = "btn btn-info vertical-center1" style="margin-left: 10px"> retour</button>

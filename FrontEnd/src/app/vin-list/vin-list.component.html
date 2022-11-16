@@ -1,0 +1,109 @@
+<!--<nav class="navbar navbar-inverse navbar-fixed-bottom">
+    
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="create-wine">Ajouter Vin</a>
+      </div>
+     
+  <div class="w3-bar w3-light-grey w3-border w3-padding">
+    
+    <input type="text" class="w3-bar-item w3-input w3-white w3-mobile" placeholder="Search..">
+    <button class="w3-bar-item w3-button w3-green w3-mobile">Go</button>
+  </div>
+     
+
+      <ul class="nav navbar-nav navbar-right ">
+        <li class="active"><a href="#">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        
+      </ul>
+    </div>
+  </nav>
+   <div class="w3-bar w3-light-grey w3-border w3-padding">
+      
+      <input type="text" class="w3-bar-item w3-input w3-white w3-mobile" placeholder="Search..">
+      <button class="w3-bar-item w3-button w3-green w3-mobile">Go</button>
+    </div>
+-->
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class = "navbar-nav">
+      <!-- <li class = "nav-item">
+            <a routerLink="wines" routerLinkActive="active" class="nav-link" >Vin List</a>
+        </li>
+        <li class = "nav-item">
+            <a routerLink="create-wine" routerLinkActive="active" class="nav-link" >Add Vin</a>
+        </li>-->
+        
+      <li class = "nav-item">
+        <a href="create-wine" routerLinkActive="active" class="nav-link" >Ajouter Vin</a>
+    </li>
+    <li class = "nav-item">
+        <a href="comptenosvin" routerLinkActive="active" class="nav-link" >Nos Vins</a>
+    </li>
+    <li class = "nav-item">
+      <a href="wines" routerLinkActive="active" class="nav-link" >Mes Vins</a>
+  </li>
+    <li class = "nav-item">
+      <a href="contact" routerLinkActive="active" class="nav-link vertical-center4" >Mon Compte</a>
+  </li>
+  <li class = "nav-item navbar-right">
+    <a href="#" routerLinkActive="active" class="nav-link w3-right vertical-center3" >Se déconnecter</a>
+</li>
+    </ul>
+  </nav>
+
+<!---- <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        
+        <ul class="navbar header nav ">
+            <li class="active"><a href="couleur">Chercher Par couleur</a></li>
+          </ul>
+   
+      <ul class="navbar header nav ">
+        <li class="active"><a href="create-wine">ajouter vin</a></li>
+      </ul>
+  
+        <ul class="nav navbar-nav navbar-right ">
+          <li class="active"><a href="contact">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Out</a></li>
+          
+        </ul>
+      </div>
+       
+    
+  </nav>
+-->
+
+  <h2> Liste Des Vins</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> Appelation </th>
+            <th> Couleur</th>
+            <th> Région Viticole</th>
+            <th> Prix</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let vin of vins |paginate: { itemsPerPage: 5, currentPage: p }" >
+            <td> {{ vin.appelation }} </td>
+            <td> {{ vin.couleur }} </td>
+            <td> {{ vin.region }} </td>
+            <td> {{ vin.prix}} </td>
+            <td>
+                <button (click) = "updateVin(vin.id)" class = "btn btn-info"> Mettre à jour</button>
+                <button (click) = "deleteVin(vin.id)" class = "btn btn-danger" style="margin-left: 10px"> Supprimer</button>
+                <button (click) = "vinDetails(vin.id)" class = "btn btn-info" style="margin-left: 10px"> Détails</button>
+            </td>
+        </tr>
+    </tbody>
+    <pagination-controls 
+
+      (pageChange)="p = $event">
+    </pagination-controls>
+</table>

@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class = "navbar-nav">
+      <!-- <li class = "nav-item">
+            <a routerLink="wines" routerLinkActive="active" class="nav-link" >Vin List</a>
+        </li>
+        <li class = "nav-item">
+            <a routerLink="create-wine" routerLinkActive="active" class="nav-link" >Add Vin</a>
+        </li>-->
+        <li class = "nav-item">
+          <a href="login" routerLinkActive="active" class="nav-link" >Login</a>
+      </li>
+      <li class = "nav-item">
+        <a href="publicList" routerLinkActive="active" class="nav-link" >Nos Vins</a>
+    </li>
+    <li class = "nav-item">
+      <a href="couleurpublic" routerLinkActive="active" class="nav-link" >Recherche par couleur</a>
+  </li>
+  <li class = "nav-item">
+    <a href="map" routerLinkActive="active" class="nav-link" >Map</a>
+</li>
+    </ul>
+  </nav>
+
+
+
+
+
+
+<table>
+ <th>  
+<!--<div class="w3-bar w3-light-grey w3-border w3-padding">
+    <input required type="text"  class="w3-bar-item w3-input w3-white w3-mobile" placeholder="Recherche par Region " id = "couleur"
+            [(ngModel)] = "couleur" name = "nom" required="required" >  
+   
+    <button  (click)="onSubmit()" class="w3-bar-item w3-button w3-green w3-mobile">Go</button>
+</div>-->
+</th> 
+<th>
+  <div class="form-group">
+    <label  >Couleur</label>
+    <select [(ngModel)]="couleur" name="couleur">
+      <option value="Blanc">Blanc</option>
+      <option value="Rouge">Rouge</option>
+      <option value="Rosé">Rosé</option>
+     
+    </select>
+    <button  (click)="onSubmit()" class="w3-bar-item w3-button w3-green w3-mobile">Go</button>
+</div>
+</th>
+</table>
+<h2> Liste Des Vins</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+           
+            <th> Appelation </th>
+            <th> Couleur</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let vin of vins |paginate: { itemsPerPage: 5, currentPage: p }" >
+            <td> {{ vin.appelation }} </td>
+            <td> {{ vin.couleur }} </td>
+            <td>
+                
+                <button (click) = "vinDetails(vin.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+    <pagination-controls 
+
+      (pageChange)="p = $event">
+    </pagination-controls>
+</table>
+<button (click) = "retour()" class = "btn btn-info vertical-center1" style="margin-left: 10px"> retour</button>

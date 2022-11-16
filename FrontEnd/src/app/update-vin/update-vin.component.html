@@ -1,0 +1,57 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Mettre A jour Vin </h3>
+    <form (ngSubmit) = "onSubmit()">
+    <th>
+
+        <div class="form-group">
+            <label>Appelation:</label>
+            <input type="text" class ="form-control" id = "appelation"
+                [(ngModel)] = "vin.appelation" name = "appelation">
+        </div>
+        <div class="form-group">
+            <label> Cepage:</label>
+            <input type="text" class ="form-control" id = "cepage"
+                [(ngModel)] = "vin.cepage" name = "cepage">
+        </div>
+     
+        <div class="form-group">
+            <label> Contenance:</label>
+            <input type="number" class ="form-control" id = "contenance"
+                [(ngModel)] = "vin.contenance" name = "contenance">
+        </div>
+    </th>
+    <th>
+        <div class="form-group">
+            <label> Prix:</label>
+            <input type="number" class ="form-control" id = "prix"
+                [(ngModel)] = "vin.prix" name = "prix">
+        </div>
+
+        <div class="form-group">
+            <label> degré d'alcool:</label>
+            <input type="number" class ="form-control" id = "degre_alcool"
+                [(ngModel)] = "vin.degre_alcool" name = "degre_alcool">
+        </div>
+        <div class="form-group">
+            <label> Description:</label>
+            <input type="text" class ="form-control" id = "description"
+                [(ngModel)] = "vin.description" name = "description">
+        </div>
+    
+        <div class="form-group">
+            <label  >Couleur</label>
+            <select [(ngModel)]="vin.couleur" name="couleur">
+              <option value="Blanc">Blanc</option>
+              <option value="Rouge">Rouge</option>
+              <option value="Rosé">Rosé</option>
+             
+            </select>
+</div>
+</th>
+
+    
+        <button class = "btn btn-success vertical-center" type ="submit">Submit</button>
+    
+    </form>
+    </div> 
+    <button (click) = "retour()" class = "btn btn-info vertical-center1" style="margin-left: 10px"> retour</button>

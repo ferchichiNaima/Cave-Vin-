@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class = "navbar-nav">
+      <!-- <li class = "nav-item">
+            <a routerLink="wines" routerLinkActive="active" class="nav-link" >Vin List</a>
+        </li>
+        <li class = "nav-item">
+            <a routerLink="create-wine" routerLinkActive="active" class="nav-link" >Add Vin</a>
+        </li>-->
+        
+      <li class = "nav-item">
+        <a href="create-wine" routerLinkActive="active" class="nav-link" >Ajouter Vin</a>
+    </li>
+    <li class = "nav-item">
+        <a href="comptenosvin" routerLinkActive="active" class="nav-link" >Nos Vins</a>
+    </li>
+    <li class = "nav-item">
+      <a href="wines" routerLinkActive="active" class="nav-link" >Mes Vins</a>
+  </li>
+  <li class = "nav-item">
+    <a href="contact" routerLinkActive="active" class="nav-link vertical-center4" >Mon Compte</a>
+</li>
+    
+  <li class = "nav-item navbar-right">
+    <a href="#" routerLinkActive="active" class="nav-link w3-right vertical-center3" >Se déconnecter</a>
+</li>
+    </ul>
+  </nav>
+  <div>
+    <label class="p4 "> <b>Les informations du producteur relié à ce compte : </b></label> 
+  <div>  
+      <div>
+    <label> <b> Nom: </b></label> {{producteur.nom}}
+</div>
+    <label> <b> numéro fiscal: </b></label> {{producteur.numero_fiscal}}
+    <div>
+    <label> <b> telephone: </b></label> {{producteur.telephone}}
+</div>
+<div>
+    <label> <b> Region Viticole: </b></label> {{producteur.regionviticole}}
+</div>
+<div>
+    <label> <b> Ville: </b></label> {{producteur.ville}}
+</div>
+</div>
+<div>
+  <label class="p4 "><br> <b>Les informations du compte : </b></label> 
+<div> 
+  <div>
+    <label> <b> Nom d'utilisateur </b></label> {{user.userName}}
+</div> 
+  <div>
+    <label> <b> EMail: </b></label> {{user.emailId}}
+</div> 
+</div>
+

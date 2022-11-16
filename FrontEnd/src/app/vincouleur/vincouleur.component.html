@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class = "navbar-nav">
+      <!-- <li class = "nav-item">
+            <a routerLink="wines" routerLinkActive="active" class="nav-link" >Vin List</a>
+        </li>
+        <li class = "nav-item">
+            <a routerLink="create-wine" routerLinkActive="active" class="nav-link" >Add Vin</a>
+        </li>-->
+        <li class = "nav-item">
+          <a href="couleur" routerLinkActive="active" class="nav-link" >Chercher Par couleur</a>
+      </li>
+      <li class = "nav-item">
+        <a href="create-wine" routerLinkActive="active" class="nav-link" >Ajouter Vin</a>
+    </li>
+    <li class = "nav-item">
+        <a href="comptenosvin" routerLinkActive="active" class="nav-link" >Nos Vins</a>
+    </li>
+    <li class = "nav-item">
+      <a href="contact" routerLinkActive="active" class="nav-link" >Contact</a>
+  </li>
+  <li class = "nav-item navbar-right">
+    <a href="#" routerLinkActive="active" class="nav-link" >Sign Out</a>
+</li>
+    </ul>
+  </nav>
+<div class="w3-bar w3-light-grey w3-border w3-padding">
+    <input required type="text"  class="w3-bar-item w3-input w3-white w3-mobile" placeholder="Search.. " id = "couleur"
+            [(ngModel)] = "couleur" name = "nom" required="required" >  
+   
+    <button  (click)="onSubmit()" class="w3-bar-item w3-button w3-green w3-mobile">Go</button>
+  </div>
+<h2> Liste Des Vins</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+           
+            <th> Appelation </th>
+            <th> Couleur</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let vin of vins |paginate: { itemsPerPage: 5, currentPage: p }" >
+           
+            <td> {{ vin.appelation }} </td>
+            <td> {{ vin.couleur }} </td>
+            <td>
+                <button (click) = "updateVin(vin.id)" class = "btn btn-info"> Update</button>
+                <button (click) = "deleteVin(vin.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "vinDetails(vin.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+    <button (click) = "retour()" class = "btn btn-info vertical-center1" style="margin-left: 10px"> retour</button>
+    <pagination-controls 
+
+      (pageChange)="p = $event">
+    </pagination-controls>
+</table>
